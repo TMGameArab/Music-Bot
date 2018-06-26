@@ -1,4 +1,5 @@
 const { Client, Util } = require('discord.js');
+const Discord = require("discord.js");
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./config');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
@@ -194,5 +195,12 @@ function play(guild, song) {
 
 	serverQueue.textChannel.send(`🎶 Start playing: **${song.title}**`);
 }
+client.on('ready', () => {
+   client.user.setGame("..play");
+}); 
+
+client.on('ready', () => {
+   client.user.setAvatar("https://cdn.discordapp.com/attachments/459321481978052609/460841536486375435/iP8B0zT4MzRXAAAAAElFTkSuQmCC.png");
+}); 
 
 client.login(TOKEN);
